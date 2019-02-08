@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>React</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta http-equiv="x-ua-compatible" content="ie-edge">
+
+            <link rel="stylesheet" href="/css/master.css">
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+            <<!-->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            </!-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+            <script type="text/javascript">
+              $( document ).ready(function() {
+
+                  $(document).on("click", "#fieldName", function(){
+                        console.log('method');
+                        var lines = $("#templateList").val().split(/\n/);
+                        var arraycontainstext = (lines.indexOf($(this).text()) > -1);
+                        if(!arraycontainstext)
+                          $("#templateList").append($(this).text() + "\n");
+                  	});
+
+                    $(document).on("click", "#template_button", function(){
+
+                          let data = $("#templateList").html();
+                          $.ajax({
+                            url: "http://localhost:8080/api/addTemplates",
+                            type: "POST",
+                            contentType: "application/json",
+                            data: data
+                          }).done(function() {
+                            $( this ).addClass("done");
+                            console.log('done');
+                          }).fail(function(){
+                            console.log('error');
+                          });
+                      });
+
+
+
+              })
+            </script>
+    </head>
+    <body>
+
+      <div class="container border">
+
+        <div id="header" class="row"> HEADER</div>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde3">
+
+              <div id="templateApp"></div>
+
+            </div>
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 borde2">
+                    <textarea id="templateList" name="name" class="form-control textarea" disabled></textarea>
+            </div>
+
+        </div>
+        <div id="footer" class="row"> FOOTER</div>
+      </div>
+
+
+
+
+      <div id="header"></div>
+        <div id="templateApp">
+          <div id="leftPanel"></div>
+          <div id=rightPanel></div>
+        </div>
+      <div id="footer"></div>
+
+    </body>
+</html>

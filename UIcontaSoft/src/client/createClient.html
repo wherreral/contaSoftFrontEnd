@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>React</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="with=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta http-equiv="x-ua-compatible" content="ie-edge">
+
+            <!--<link rel="stylesheet" href="/css/master.css">-->
+
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+            <!-->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            </!-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+            <link rel="stylesheet" href="public/style/main.css">
+            <link rel="stylesheet" href="public/style/nav-bar.css">
+
+            <script type="text/javascript">
+              $( document ).ready(function() {
+
+                  $(document).on("click", "#fieldName", function(){
+                        console.log('method');
+                        var lines = $("#templateList").val().split(/\n/);
+                        var arraycontainstext = (lines.indexOf($(this).text()) > -1);
+                        if(!arraycontainstext)
+                          $("#templateList").append($(this).text() + "\n");
+                  	});
+
+                    $(document).on("click", "#send_button", function(){
+                          console.log("LOGIN");
+
+                          let username = $("#user").val();
+                          let password = $("#password").val();
+                          //data = "'{"username":username, "password":password}'";
+                          console.log("user;"+username);
+                          console.log("password;"+password);
+                          //console.log(JSON.stringify(data));
+
+                          $.ajax({
+                            //url: "http://localhost:8080/api/lagun?user="+user+"&password="+password+"",
+                            url: "http://localhost:8080/api/login",
+                            type: "POST",
+                            //data: {"username":username, "password":password},
+                            //data: JSON.stringify(data),
+                            //data: JSON.stringify('{"username":username, "password":password}'),
+                            data: JSON.stringify({"username":username, "password":password}),
+                            contentType: "application/json"
+                          }).done(function() {
+                            $( this ).addClass("done");
+                            console.log('done');
+                          }).fail(function(){
+                            console.log('error');
+                          });
+                      });
+
+
+
+              })
+            </script>
+    </head>
+    <body>
+
+      <div class="container-fluid border">
+
+        <!--
+        <div class="wrapper">
+            <aside class="main_sidebar">
+                <ul>
+                    <li><i class="fa fa-arrows"></i><a href="#">arrows</a></li>
+                    <li><i class="fa fa-battery-2"></i><a href="#">battery</a></li>
+                    <li class="active"><i class="fa fa-bell"></i><a href="#">bell</a></li>
+                    <li><i class="fa fa-bicycle"></i><a href="#">bicycle</a></li>
+                    <li><i class="fa fa-circle"></i><a href="#">circle</a></li>
+                    <li><i class="fa fa-crosshairs"></i><a href="#">crosshairs</a></li>
+                    <li><i class="fa fa-deaf"></i><a href="#">deaf</a></li>
+                    <li><i class="fa fa-desktop"></i><a href="#">desktop</a></li>
+                    <li><i class="fa fa-dot-circle-o"></i><a href="#">dot</a></li>
+                    <li><i class="fa fa-folder"></i><a href="#">folder</a></li>
+                </ul>
+            </aside>
+            <div class="main">
+                <h1>HOLA </h1>
+            </div>
+        </div>
+-->
+
+
+
+          <div class="row">
+            <div class="col d-none d-md-block">
+              <h1>HEADER</h1>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </div>
+
+
+
+        <div class="wrapper border">
+
+          <div class="row">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 borde">
+              <h1>Contribuyente</h1>
+            </div>
+          </div>
+          <div class="row ">
+              <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 borde">
+                <input type="text" name="" id="RUT" placeholder="RUT">
+              </div>
+              <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+                <input type="text" name="" id="NAME" placeholder="NOMBRE">
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+                <input type="text" name="" id="LASTNAME" placeholder="APELLIDO">
+              </div>
+          </div>
+        </div>
+
+
+
+        <br />
+        <h1>Direccion</h1>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="text" name="" id="ADDRESS" placeholder="CALLE">
+            </div>
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4 borde">
+              <input type="text" name="" id="NUMBER" placeholder="NUMERO">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="text" name="" id="REGION" placeholder="REGION">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="text" name="" id="COMUNA" placeholder="COMUNA">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="text" name="" id="CITY" placeholder="CIUDAD">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="text" name="" id="POSTALCODE" placeholder="CODIGO POSTAL">
+            </div>
+        </div>
+
+
+        <br />
+        <h1>Subsidiarias</h1>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="text" name="" id="SNAME" placeholder="NOMBRE">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="text" name="" id="NICKNAME" placeholder="NICKNAME">
+            </div>
+        </div>
+
+        <br />
+        <div class="row">
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8 borde">
+              <input type="button" name="" id="create_button" value="Crear Cliente">
+            </div>
+        </div>
+
+
+        <!--<div id="footer" class="row"> FOOTER</div>-->
+      </div>
+
+
+
+
+      <div id="header"></div>
+        <div id="templateApp">
+          <div id="leftPanel"></div>
+          <div id=rightPanel></div>
+        </div>
+      <div id="footer"></div>
+
+    </body>
+</html>

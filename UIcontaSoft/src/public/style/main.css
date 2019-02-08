@@ -1,0 +1,35 @@
+
+
+body {
+/*  color: red;  COLOR DE LAS LETRAS*/
+  /*background-color: red;*/
+    /*background-color: #8b9dc3;*/
+    /*color: #fff;*/
+}
+
+.border{
+  background-color: gray; /*Backgroud color del container*/
+  /*height: 50px*/
+}
+
+.borde{
+  /*background-color: gray;
+  height: 50px*/
+}
+
+.borde1{
+  background-color: aquamarine;
+  height: 50px
+}
+
+.borde2{
+  background-color: olivedrab;
+  height: 500px;
+  text-align: center;
+}
+
+.borde3{
+  background-color: gray;
+  height: 500px;
+  text-align: left;
+}

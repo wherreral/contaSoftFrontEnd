@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>React</title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="with=device-width,initial-scale=1,shrink-to-fit=no">
+            <meta http-equiv="x-ua-compatible" content="ie-edge">
+
+
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+            <!-->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            </!-->
+
+            <script defer src="public/dist/login.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+            <!-- <script type="text/javascript">
+              $( document ).ready(function() {
+
+                  $(document).on("click", "#fieldName", function(){
+                        console.log('method');
+                        var lines = $("#templateList").val().split(/\n/);
+                        var arraycontainstext = (lines.indexOf($(this).text()) > -1);
+                        if(!arraycontainstext)
+                          $("#templateList").append($(this).text() + "\n");
+                  	});
+
+                    $(document).on("click", "#sing_button", function(){
+                          console.log("SING-IN");
+
+                          let username = $("#user").val();
+                          let password = $("#password").val();
+                          //data = "'{"username":username, "password":password}'";
+                          console.log("user;"+username);
+                          console.log("password;"+password);
+                          //console.log(JSON.stringify(data));
+
+                          $.ajax({
+                            //url: "http://localhost:8080/api/lagun?user="+user+"&password="+password+"",
+                            type: "POST",
+                            //url: "http://localhost:8080/public/api/sign-in",
+                            url: "http://localhost:8080/login",
+                            contentType: "application/json",
+                            //data: {"username":username, "password":password},
+                            //data: JSON.stringify(data),
+                            //data: JSON.stringify('{"username":username, "password":password}'),
+                            data: JSON.stringify({"username":username, "password":password})
+                          }).done(function() {
+                            $( this ).addClass("done");
+                            console.log('done');
+                          }).fail(function(){
+                            console.log('error');
+                          });
+                      });
+
+                    $(document).on("click", "#send_button", function(){
+                          console.log("LOGIN");
+
+                          let username = $("#user").val();
+                          let password = $("#password").val();
+                          //data = "'{"username":username, "password":password}'";
+                          console.log("user;"+username);
+                          console.log("password;"+password);
+                          //console.log(JSON.stringify(data));
+
+                          $.ajax({
+                            //url: "http://localhost:8080/api/lagun?user="+user+"&password="+password+"",
+                            type: "POST",
+                            url: "http://localhost:8080/public/api/sign-up",
+                            contentType: "application/json",
+                            //data: {"username":username, "password":password},
+                            //data: JSON.stringify(data),
+                            //data: JSON.stringify('{"username":username, "password":password}'),
+                            data: JSON.stringify({"username":username, "password":password})
+                          }).done(function() {
+                            $( this ).addClass("done");
+                            console.log('done');
+                          }).fail(function(){
+                            console.log('error');
+                          });
+                      });
+
+
+
+              })
+            </script> -->
+    </head>
+    <body>
+      <div id="templateApp">
+
+      </div>
+      <div class="container border">
+        <div id="header" class="row"> HEADER</div>
+          <div id="contentLogin">
+
+          </div>
+        <div id="footer" class="row"> FOOTER</div>
+      </div>
+    </body>
+</html>
