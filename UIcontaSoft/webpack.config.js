@@ -14,7 +14,7 @@ module.exports = {
         login: './src/client/login.js',
         dashboard: './src/client/dashboard.js',
         newtaxpayer: './src/client/newtaxpayer.js',
-        api: ['regenerator-runtime/runtime','./src/client/Functions/api.js']
+        api: ['regenerator-runtime/runtime','./src/client/functions/api.js']
     },
     output: {
         path:path.join(__dirname, './src/public/dist'),//__dirname + '/build',//path.resolve(__dirname, '/dist'),
