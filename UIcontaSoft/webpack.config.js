@@ -32,6 +32,11 @@ module.exports = {
             {
                 use:['style-loader', 'css-loader'],
                 test: /\.css$/
+            },
+            {
+                test: /\newtaxpayer.js$/,
+                include: /node_modules/,
+                type: "javascript/auto"
             }//,
             /*{
                 test: /\.scss$/,
